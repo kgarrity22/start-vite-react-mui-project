@@ -1,0 +1,22 @@
+{
+  "name": "cli-tool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kgarrity22/cli-tool.git",
+  "author": "Kathleen Garrity <kathleen.garrity223@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "startup-new-project": "./bin/index.js"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "enquirer": "^2.4.1",
+    "execa": "^9.5.3",
+    "fs-extra": "^11.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
