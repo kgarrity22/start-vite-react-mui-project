@@ -17,5 +17,8 @@
   },
   "bin": {
     "startup-new-project": "./bin/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

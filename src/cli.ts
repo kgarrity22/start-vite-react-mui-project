@@ -9,7 +9,7 @@ const program = new Command();
 
 program
   .name("startup-new-project")
-  .description("Bootstrap a custom Vite + MUI + React Router project")
+  .description("Bootstrap a custom Vite + React + TypeScript project")
   .action(async () => {
     const { name } = await prompt<{ name: string }>({
       type: "input",
