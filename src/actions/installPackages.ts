@@ -20,14 +20,30 @@ export async function installPackages(name: string) {
   // Get any optional packages
   const optionalPackages = await getOptionalPackages(OPTIONAL_PACKAGES);
 
-  const finalPackages = [...packages, ...optionalPackages];
+  const finalPackages = [...packages, ...optionalPackages].filter(
+    (p) => p !== "storybook"
+  );
 
   await execa("yarn", ["add", ...finalPackages], {
     cwd: name,
     stdio: "inherit",
   });
+
+  // Install Storybook --> separate from optional packages because uses 'create' instead of 'add'
+  if (optionalPackages.includes("storybook")) {
+    await execa("yarn", ["create", "storybook"], {
+      cwd: name,
+      stdio: "inherit",
+    });
+  }
 }
 
+/**
+ * Helper for getting optional packages based on user prompts
+ *
+ * @param pkgs - The optional packages
+ * @returns The optional packages to add via `yarn add`
+ */
 async function getOptionalPackages(pkgs: OptionalPackage[]) {
   const optionalPackages = [];
 

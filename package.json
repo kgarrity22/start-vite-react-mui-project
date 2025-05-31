@@ -1,8 +1,9 @@
 {
-  "name": "my-startup-cli",
+  "name": "create-start-new-project",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "description": "A CLI tool to scaffold a React + Vite + Bulletproof app with options like MUI, React Router, and Storybook.",
   "dependencies": {
     "commander": "^14.0.0",
     "enquirer": "^2.4.1",
@@ -16,9 +17,34 @@
     "typescript": "^5.8.3"
   },
   "bin": {
-    "startup-new-project": "./bin/index.js"
+    "create-start-new-project": "./bin/index.js"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start-new-project": "node ./bin/index.js",
+    "dev": "ts-node src/index.ts",
+    "start": "node ./bin/index.js",
+    "link": "yarn build && yarn link"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "cli",
+    "vite",
+    "react",
+    "starter",
+    "scaffold",
+    "bulletproof-react",
+    "mui",
+    "react-router",
+    "storybook",
+    "boilerplate"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=16"
   }
 }
