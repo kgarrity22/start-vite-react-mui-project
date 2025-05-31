@@ -1,7 +1,7 @@
 import { execa } from "execa";
 import { prompt } from "enquirer";
-import { OPTIONAL_PACKAGES } from "./constants";
-import { OptionalPackage } from "../types";
+import { OPTIONAL_PACKAGES } from "./constants.js";
+import { OptionalPackage } from "../types.js";
 
 /**
  * Installs the necessary packages for the project

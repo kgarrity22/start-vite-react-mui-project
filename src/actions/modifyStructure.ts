@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import { FILE_STRUCTURE } from "./constants";
+import { FILE_STRUCTURE } from "./constants.js";
 
 /**
  * Modifies the structure of the project

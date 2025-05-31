@@ -1,9 +1,9 @@
 import { Command } from "commander";
 import { prompt } from "enquirer";
-import { createProject } from "./actions/createProject";
-import { installPackages } from "./actions/installPackages";
-import { modifyStructure } from "./actions/modifyStructure";
-import { setupTheme } from "./actions/setupTheme";
+import { createProject } from "./actions/createProject.js";
+import { installPackages } from "./actions/installPackages.js";
+import { modifyStructure } from "./actions/modifyStructure.js";
+import { setupTheme } from "./actions/setupTheme.js";
 
 const program = new Command();
 
