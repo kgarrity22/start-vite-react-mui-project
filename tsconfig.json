@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2020", // Good balance for async/await support
-    "module": "CommonJS", // Required for Node CLI
-    "rootDir": "src", // Source folder
-    "outDir": "dist", // Output folder
-    "strict": true, // Enable all strict type-checking options
-    "esModuleInterop": true, // Allow default imports from CommonJS
+    "target": "ES2020",
+    "module": "ESNext", // ✅ Use native ES modules
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true, // Speeds up builds
-    "resolveJsonModule": true, // Allow importing .json files
-    "moduleResolution": "node", // Use Node-style resolution
-    "declaration": true // Optional: Emit .d.ts files
+    "skipLibCheck": true,
+    "strict": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }
