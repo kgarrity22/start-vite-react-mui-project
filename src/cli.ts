@@ -1,11 +1,12 @@
 import { Command } from "commander";
-import { prompt } from "enquirer";
+import enquirer from "enquirer";
 import { createProject } from "./actions/createProject.js";
 import { installPackages } from "./actions/installPackages.js";
 import { modifyStructure } from "./actions/modifyStructure.js";
 import { setupTheme } from "./actions/setupTheme.js";
 
 const program = new Command();
+const { prompt } = enquirer;
 
 program
   .name("startup-new-project")

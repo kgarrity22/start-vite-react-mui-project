@@ -1,5 +1,5 @@
 import { execa } from "execa";
-import { prompt } from "enquirer";
+import enquirer from "enquirer";
 import { OPTIONAL_PACKAGES } from "./constants.js";
 import { OptionalPackage } from "../types.js";
 
@@ -46,7 +46,7 @@ export async function installPackages(name: string) {
  */
 async function getOptionalPackages(pkgs: OptionalPackage[]) {
   const optionalPackages = [];
-
+  const { prompt } = enquirer;
   // For each optional package, confirm if the user wants to install it
   for (const pkg of pkgs) {
     const { usePackage } = await prompt<{ usePackage: boolean }>({
