@@ -20,11 +20,14 @@ export async function installPackages(name: string) {
   // Get any optional packages
   const optionalPackages = await getOptionalPackages(OPTIONAL_PACKAGES);
 
-  const finalPackages = [...packages, ...optionalPackages].filter(
+  const allPackages = [...packages, ...optionalPackages];
+
+  // Filtering out storybook because it's installed via `create` rather than `add`
+  const packagesToAdd = [...packages, ...optionalPackages].filter(
     (p) => p !== "storybook"
   );
 
-  await execa("yarn", ["add", ...finalPackages], {
+  await execa("yarn", ["add", ...packagesToAdd], {
     cwd: name,
     stdio: "inherit",
   });
@@ -36,6 +39,8 @@ export async function installPackages(name: string) {
       stdio: "inherit",
     });
   }
+
+  return allPackages;
 }
 
 /**
