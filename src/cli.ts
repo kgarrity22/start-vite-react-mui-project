@@ -1,9 +1,10 @@
-import { Command } from "commander";
 import enquirer from "enquirer";
+import "dotenv/config";
+import { Command } from "commander";
 import { createProject } from "./actions/createProject.js";
 import { installPackages } from "./actions/installPackages.js";
 import { modifyStructure } from "./actions/modifyStructure.js";
-import { setupTheme } from "./actions/setupTheme.js";
+import { setupTheme } from "./actions/setup-theme/setupTheme.js";
 import { generateReadme } from "./actions/generateReadme.js";
 
 const program = new Command();

@@ -31,15 +31,41 @@ export async function modifyStructure(projectRoot: string) {
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { PaletteMode, ThemeProvider } from '@mui/material';
 import Layout from './Layout';
+import { theme } from './theme'; // todo: check this
+
+const ToggleColorMode = ({ children }: { children: React.ReactNode }) => {
+  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const colorMode = React.useMemo(
+    () => ({
+      // can implement a switch that invokes this method
+      toggleColorMode: () => {
+        setMode((prevMode: PaletteMode) =>
+          prevMode === "light" ? "dark" : "light"
+        );
+      },
+    }),
+    []
+  );
+  const theme = React.useMemo(() => getTheme(mode), [mode]);
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ColorModeContext.Provider>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />} />
-      </Routes>
-    </BrowserRouter>
+    <ToggleColorMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />} />
+        </Routes>
+      </BrowserRouter>
+    </ToggleColorMode>
   </React.StrictMode>
 );
   `;
