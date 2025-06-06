@@ -67,7 +67,7 @@ yarn storybook
 yarn build-storybook
 ```
 
-Storybook helps visualize components in isolation. You’ll find example stories in `src/components/Button/Button.stories.tsx`.
+Storybook helps visualize components in isolation.
 
 {{/if}}
 
@@ -82,6 +82,7 @@ Built with:
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+- [Material UI](https://mui.com/material-ui)
 
 {{#if usesStorybook}}
 - [Storybook](https://storybook.js.org/)

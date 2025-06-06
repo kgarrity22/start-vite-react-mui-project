@@ -3,7 +3,7 @@ import path from "path";
 import enquirer from "enquirer";
 import { addFonts } from "./add-fonts.js";
 import { addColorModeHook } from "./create-color-mode-toggle/add-color-mode-hook.js";
-import { addColorModeToggle } from "./create-color-mode-toggle/add-color-modetoggle.js";
+import { addColorModeToggle } from "./create-color-mode-toggle/add-color-mode-toggle.js";
 import { addColorModeContext } from "./create-color-mode-toggle/add-color-mode-context.js";
 
 const getCustomColors = async () => {
