@@ -1,6 +1,6 @@
 # 🚀 {{projectName}}
 
-Generated with [`create-startup-project`](https://github.com/kgarrity22/create-startup-project) — a CLI tool for bootstrapping production-ready React + Vite apps with a clean, scalable architecture.
+Generated with [`create-vite-react-mui-project`](https://github.com/kgarrity22/create-start-project) — a CLI tool for bootstrapping production-ready React + Vite apps with a clean, scalable architecture.
 
 ---
 

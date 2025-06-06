@@ -1,9 +1,9 @@
 {
-  "name": "create-start-new-project",
+  "name": "create-vite-react-mui-project",
   "version": "0.0.4",
   "main": "index.js",
   "license": "MIT",
-  "description": "A CLI tool to scaffold a React + Vite + Bulletproof app with options like MUI, React Router, and Storybook.",
+  "description": "A CLI tool to scaffold a React + Vite app with MUI, React Router, and Storybook.",
   "dependencies": {
     "commander": "^14.0.0",
     "dotenv": "^16.5.0",

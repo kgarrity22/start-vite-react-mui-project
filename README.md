@@ -1,4 +1,4 @@
-# 🛠️ Startup New Project CLI
+# 🛠️ Create Vite/React/MUI Project CLI
 
 A customizable command-line tool that scaffolds a modern React + Vite project with pre-installed libraries and opinionated project structure.
 
@@ -39,13 +39,13 @@ yarn build
 Eventually, you’ll be able to run:
 
 ```bash
-yarn startup-new-project
+yarn create start-new-project
 ```
 
 Or globally:
 
 ```bash
-npx startup-new-project
+npx start-new-project
 ```
 
 And go through a series of prompts to generate a ready-to-code project.

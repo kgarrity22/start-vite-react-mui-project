@@ -13,7 +13,7 @@ const program = new Command();
 const { prompt } = enquirer;
 
 program
-  .name("startup-new-project")
+  .name("create-vite-react-mui-project")
   .description("Bootstrap a custom Vite + React + TypeScript project with MUI")
   .action(async () => {
     const { name } = await prompt<{ name: string }>({
