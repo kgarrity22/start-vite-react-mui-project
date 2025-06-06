@@ -7,6 +7,7 @@ import { modifyStructure } from "./actions/modifyStructure.js";
 import { setupTheme } from "./actions/setup-theme/setupTheme.js";
 import { generateReadme } from "./actions/generateReadme.js";
 import { createLayoutWrapper } from "./actions/createLayoutWrapper.js";
+import { clearStyles } from "./actions/clearStyles.js";
 
 const program = new Command();
 const { prompt } = enquirer;
@@ -25,6 +26,7 @@ program
     const packages = await installPackages(name);
     generateReadme(name, name, packages.includes("storybook"));
     await modifyStructure(name);
+    await clearStyles(name);
     await setupTheme(name);
     await createLayoutWrapper(name);
 

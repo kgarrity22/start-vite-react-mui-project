@@ -30,14 +30,14 @@ const updateEntryFile = async (projectRoot: string) => {
 
 const addVercelConfig = async (projectRoot: string) => {
   const vercelPath = path.join(projectRoot, "vercel.json");
-  const content = `{
+  const content = JSON.stringify({
     rewrites: [
       {
         source: "/(.*)",
         destination: "/",
       },
     ],
-  };`;
+  });
   // Write to file
   await fs.writeFile(vercelPath, content);
 };
