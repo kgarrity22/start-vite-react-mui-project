@@ -1,10 +1,10 @@
 import fs from "fs-extra";
 import path from "path";
 import enquirer from "enquirer";
-import { addFonts } from "./addFonts.js";
-import { addColorModeHook } from "./create-color-mode-toggle/addColorModeHook.js";
-import { addColorModeToggle } from "./create-color-mode-toggle/addColorModeToggle.js";
-import { addColorModeContext } from "./create-color-mode-toggle/addColorModeContext.js";
+import { addFonts } from "./add-fonts.js";
+import { addColorModeHook } from "./create-color-mode-toggle/add-color-mode-hook.js";
+import { addColorModeToggle } from "./create-color-mode-toggle/add-color-modetoggle.js";
+import { addColorModeContext } from "./create-color-mode-toggle/add-color-mode-context.js";
 
 const getCustomColors = async () => {
   const { prompt } = enquirer;

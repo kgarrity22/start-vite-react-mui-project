@@ -1,13 +1,13 @@
 import enquirer from "enquirer";
 import "dotenv/config";
 import { Command } from "commander";
-import { createProject } from "./actions/createProject.js";
-import { installPackages } from "./actions/installPackages.js";
-import { modifyStructure } from "./actions/modifyStructure.js";
-import { setupTheme } from "./actions/setup-theme/setupTheme.js";
-import { generateReadme } from "./actions/generateReadme.js";
-import { createLayoutWrapper } from "./actions/createLayoutWrapper.js";
-import { clearStyles } from "./actions/clearStyles.js";
+import { createProject } from "./actions/create-project.js";
+import { installPackages } from "./actions/install-packages.js";
+import { modifyStructure } from "./actions/modify-structure.js";
+import { setupTheme } from "./actions/setup-theme/setup-theme.js";
+import { generateReadme } from "./actions/generate-readme.js";
+import { createLayoutWrapper } from "./actions/create-layout-wrapper.js";
+import { clearStyles } from "./actions/clear-styles.js";
 
 const program = new Command();
 const { prompt } = enquirer;
