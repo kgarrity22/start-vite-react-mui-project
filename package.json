@@ -1,5 +1,5 @@
 {
-  "name": "create-vite-react-mui-project",
+  "name": "start-vite-react-mui-project",
   "version": "0.0.4",
   "main": "index.js",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "typescript": "^5.8.3"
   },
   "bin": {
-    "create-start-new-project": "./bin/index.js"
+    "start-vite-react-mui-project": "./bin/index.js"
   },
   "scripts": {
     "build": "tsc",
