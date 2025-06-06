@@ -121,6 +121,9 @@ async function validateGoogleFonts(
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
+  // this is what is inside of valid
+  // we want to just be passing the names
+  // console.log("RESULTS: ", results);
 
   const valid = results.filter((r) => r.isValid).map((r) => r.familyName);
   const invalid = results
@@ -130,6 +133,8 @@ async function validateGoogleFonts(
       error: r.error!,
     }));
 
+  // console.log("valid inside validation: ", valid);
+
   return { valid, invalid };
 }
 
@@ -138,7 +143,9 @@ const updateIndex = async (
   fonts: string[],
   projectRoot: string
 ) => {
-  const fontImportString = fonts.map((f) => `family=${f}&`).join("");
+  const fontImportString = fonts
+    .map((f) => `family=${f.replace(/ /g, "+")}&`)
+    .join("");
   const indexPath = path.join(projectRoot, "index.html");
 
   try {
@@ -202,7 +209,7 @@ export const addFonts = async (projectName: string) => {
         "Import Fonts: Enter any google font families you would like to import (comma separated if more than one). Press 'Enter' to skip:",
     },
   ]);
-  console.log(`\nFonts: ${fonts}`);
+  // console.log(`\nFonts: ${fonts}`);
 
   // If no fonts were entered, skip to the next step
   if (fonts.length <= 0) {
@@ -212,6 +219,7 @@ export const addFonts = async (projectName: string) => {
       fonts,
       process.env.GOOGLE_FONTS_API_KEY
     );
+    // console.log("INITIAL valid: ", valid);
 
     // Notify user of any invalid fonts
     if (invalid.length > 0) {
@@ -222,10 +230,16 @@ export const addFonts = async (projectName: string) => {
     }
 
     let defaultFont = "";
+
+    // creating a new var because setting valid in the select prompt directly changes it to an array of objects
+
     if (valid.length > 0) {
       // Notify user of successfully installed onts
       console.log(`\n✅ Valid fonts (${valid.length}) installed:`);
+      // for each is fucking it up somehow I think?
+      // console.log("valid pre forEach: ", valid);
       valid.forEach((font) => console.log(`  • ${font}`));
+      // console.log("valid post forEach: ", valid);
 
       // Allow user to set a default font for typography components
       const result = await prompt<{ defaultFont: string }>([
@@ -233,11 +247,12 @@ export const addFonts = async (projectName: string) => {
           type: "select",
           name: "defaultFont",
           message: "Would you like to set one of these as the default font?",
-          choices: valid,
+          choices: [...valid],
         },
       ]);
       defaultFont = result.defaultFont;
     }
+    console.log("VALID: ", valid);
 
     await updateIndex(projectName, valid, projectName);
 

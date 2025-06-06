@@ -1,13 +1,5 @@
 node_modules/
 dist/
-test-project/
-test-project-2/
-test-project-3/
-test-project-3/
-test-project-4/
-test-project-5/
-test-project-6/
-test-project-7/
-test-project-8/
+test-project-*/
 
 .env*

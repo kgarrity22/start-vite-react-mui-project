@@ -28,44 +28,21 @@ export async function modifyStructure(projectRoot: string) {
 
   // Write custom main.tsx with Router
   const mainContent = `
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PaletteMode, ThemeProvider } from '@mui/material';
-import Layout from './Layout';
-import { theme } from './theme'; // todo: check this
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import { ColorModeProvider } from "./theme/color-mode-toggle";
 
-const ToggleColorMode = ({ children }: { children: React.ReactNode }) => {
-  const [mode, setMode] = React.useState<PaletteMode>("light");
-  const colorMode = React.useMemo(
-    () => ({
-      // can implement a switch that invokes this method
-      toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) =>
-          prevMode === "light" ? "dark" : "light"
-        );
-      },
-    }),
-    []
-  );
-  const theme = React.useMemo(() => getTheme(mode), [mode]);
-
-  return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </ColorModeContext.Provider>
-  );
-};
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ToggleColorMode>
+    <ColorModeProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />} />
         </Routes>
       </BrowserRouter>
-    </ToggleColorMode>
+    </ColorModeProvider>
   </React.StrictMode>
 );
   `;

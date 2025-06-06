@@ -6,6 +6,7 @@ import { installPackages } from "./actions/installPackages.js";
 import { modifyStructure } from "./actions/modifyStructure.js";
 import { setupTheme } from "./actions/setup-theme/setupTheme.js";
 import { generateReadme } from "./actions/generateReadme.js";
+import { createLayoutWrapper } from "./actions/createLayoutWrapper.js";
 
 const program = new Command();
 const { prompt } = enquirer;
@@ -25,6 +26,7 @@ program
     generateReadme(name, name, packages.includes("storybook"));
     await modifyStructure(name);
     await setupTheme(name);
+    await createLayoutWrapper(name);
 
     console.log("✅ Project initialized!");
   });

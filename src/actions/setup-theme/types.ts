@@ -2,7 +2,7 @@ export type FontValidationResult = {
   isValid: boolean;
   familyName: string;
   error?: string;
-};
+}; // TODO: think this is just wrong?
 
 export type FontValidationSummary = {
   valid: string[];

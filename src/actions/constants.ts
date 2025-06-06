@@ -60,6 +60,10 @@ export const FILE_STRUCTURE = [
   },
   { dir: "src/stores", comment: "global state stores" },
   { dir: "src/testing", comment: "test utilities and mocks" },
+  {
+    dir: "src/theme",
+    comment: "all files related to material ui theme configuration",
+  },
   { dir: "src/types", comment: "shared types used across the application" },
   { dir: "src/utils", comment: "shared utility functions" },
 ];

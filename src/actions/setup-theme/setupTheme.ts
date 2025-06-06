@@ -2,6 +2,9 @@ import fs from "fs-extra";
 import path from "path";
 import enquirer from "enquirer";
 import { addFonts } from "./addFonts.js";
+import { addColorModeHook } from "./create-color-mode-toggle/addColorModeHook.js";
+import { addColorModeToggle } from "./create-color-mode-toggle/addColorModeToggle.js";
+import { addColorModeContext } from "./create-color-mode-toggle/addColorModeContext.js";
 
 const getCustomColors = async () => {
   const { prompt } = enquirer;
@@ -30,23 +33,32 @@ const getCustomColors = async () => {
   return customPalette;
 };
 
+// this is gonna get a lot bigger I think now
 export async function setupTheme(projectRoot: string) {
-  const themePath = path.join(projectRoot, "src", "theme.ts");
-
-  // as the user for background color
-  // (make all of these skippable instructions)
-  // ask the user if they would like to add a light/dark theme toggle
+  const themePath = path.join(projectRoot, "src", "theme", "theme.ts");
 
   const palette = await getCustomColors();
   const defaultFont = await addFonts(projectRoot);
 
-  const themeContent = `
-import { ThemeProvider, createTheme, CssBaseline, useColorScheme } from '@mui/material';
+  await addColorModeContext(projectRoot);
+  await addColorModeHook(projectRoot);
+  await addColorModeToggle(projectRoot);
 
-export const theme = createTheme({
-  ${Object.keys(palette).length > 0 ? `palette: ${palette},` : ""}
-  ${defaultFont ? `typography: {fontFamily: ${defaultFont}},` : ""}
-});
+  const paletteEntries = Object.entries(palette)
+    .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+    .join(",\n          ");
+
+  const themeContent = `
+    import { createTheme, type PaletteMode } from '@mui/material';
+
+    export const createCustomTheme = (mode: PaletteMode) =>
+      createTheme({
+        palette: {
+          mode,
+          ${paletteEntries ? paletteEntries + "," : ""}
+        },
+        ${defaultFont ? `typography: {fontFamily: "${defaultFont}"},` : ""}
+    });
 `;
 
   await fs.writeFile(themePath, themeContent);
