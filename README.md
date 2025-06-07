@@ -22,7 +22,8 @@ This CLI helps you:
 - Build in dark/light mode toggling capabilities
 
 ## 🧪 Getting Started (Development)
-// TODO: get your own google fonts API key and stick it in .env as 
+For running locally, you'll need to get a Google fonts API key ([see more on this here](https://developers.google.com/fonts/docs/developer_api)) and store in in a .env file as `GOOGLE_FONTS_API_KEY`
+
 
 ```bash
 # Clone the repo and install dependencies
