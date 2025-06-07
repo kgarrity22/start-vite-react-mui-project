@@ -30,7 +30,7 @@
   "files": [
     "bin",
     "dist",
-    "src"
+    "templates"
   ],
   "keywords": [
     "cli",
