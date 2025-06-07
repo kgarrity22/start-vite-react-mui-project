@@ -2,6 +2,9 @@
 
 Generated with [`start-vite-react-mui-project`](https://github.com/kgarrity22/create-start-project) — a CLI tool for bootstrapping production-ready React + Vite apps with a clean, scalable architecture.
 
+
+<img width="400" alt="Screen Shot 2025-06-06 at 3 27 33 PM" src="https://github.com/user-attachments/assets/e89f8198-8d42-4a2c-80ca-bd4faeb9f5b4" />
+
 ---
 
 ## 📁 Project Structure
