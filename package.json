@@ -21,7 +21,7 @@
     "start-vite-react-mui-project": "./bin/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r templates dist/",
     "start-new-project": "node ./bin/index.js",
     "dev": "ts-node src/index.ts",
     "start": "node ./bin/index.js",
@@ -29,8 +29,7 @@
   },
   "files": [
     "bin",
-    "dist",
-    "templates"
+    "dist"
   ],
   "keywords": [
     "cli",
