@@ -1,6 +1,6 @@
 {
   "name": "start-vite-react-mui-project",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "license": "MIT",
   "description": "A CLI tool to scaffold a React + Vite app with MUI, React Router, and Storybook.",
