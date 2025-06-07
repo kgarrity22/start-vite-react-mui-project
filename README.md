@@ -59,7 +59,7 @@ cli-tool/
 ├── src/
 │   ├── cli.ts              # Commander + Enquirer setup
 │   ├── actions/
-│   │   ├── setup-theme/   # MUI theme configuration, font installation, color mode toggle logic
+│   │   ├── setup-theme/    # MUI theme configuration, font installation, color mode toggle logic
 │   │   │    ├── create-color-mode-toggle/   
 │   │   │    │    ├── add-color-mode-context.ts       
 │   │   │    │    ├── add-color-mode-hook.ts    
@@ -74,6 +74,8 @@ cli-tool/
 │   │   ├── generate-readme.ts
 │   │   ├── install-packages.ts
 │   │   └── modify-structure.ts
+├── tests/
+│   └──  test-project/          # Example project created by `yarn start-vite-react-mui-project`
 ├── package.json
 ├── tsconfig.json
 └── README.md
