@@ -5,6 +5,13 @@ A customizable command-line tool that scaffolds a modern React + Vite project wi
 ## ℹ️ About
 I'm a big fan of using vite when I create web apps, but I also have found myself repeating a series of steps to get the project configuration exactly the way I want it each time. I built this CLI tool to automate those few extra set up steps in the hopes of streamlining my project creation process by automatically installing packages, scaffolding the app's file structure, defining fonts, and establishing some baseline themeing. This makes it quick and easy for me to start a new project with my go to front-end tech stack (React, MUI (component library), bulletproof react (for file structure guidelines), google fonts).
 
+## 👉 How to Use
+Run
+```
+npx start-vite-react-mui-project
+```
+and follow the prompts to get the project started
+
 ## 🚀 What It Does
 
 This CLI helps you:
@@ -55,10 +62,9 @@ And go through a series of prompts to generate a ready-to-code project.
 cli-tool/
 ├── bin/
 │   └── index.js            # Entry point
-├── templates/
-│   └── base-template/      # Mostly static reusable files
 ├── src/
 │   ├── cli.ts              # Commander + Enquirer setup
+│   ├── templates/          # Mostly static reusable files
 │   ├── actions/
 │   │   ├── setup-theme/    # MUI theme configuration, font installation, color mode toggle logic
 │   │   │    ├── create-color-mode-toggle/   

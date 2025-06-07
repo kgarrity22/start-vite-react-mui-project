@@ -15,7 +15,7 @@ export function generateReadme(
   usesStorybook: boolean
 ) {
   const readmeTemplate = fs.readFileSync(
-    path.join("templates", "readme-template.md"),
+    path.join(projectRoot, "src", "templates", "readme-template.md"),
     "utf-8"
   );
   const output = readmeTemplate
