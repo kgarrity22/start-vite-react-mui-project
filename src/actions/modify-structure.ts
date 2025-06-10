@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import { FILE_STRUCTURE } from "./constants.js";
+import { FILE_STRUCTURE } from "../constants.js";
 
 const updateEntryFile = async (projectRoot: string) => {
   const mainPath = path.join(projectRoot, "src", "main.tsx");

@@ -1,4 +1,4 @@
-import { OptionalPackage } from "../types.js";
+import { OptionalPackage } from "./types.js";
 
 // Bulletproof structure for a React project (https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)
 export const FILE_STRUCTURE = [

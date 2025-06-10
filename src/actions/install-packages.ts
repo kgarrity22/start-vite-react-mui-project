@@ -1,6 +1,6 @@
 import { execa } from "execa";
 import enquirer from "enquirer";
-import { OPTIONAL_PACKAGES } from "./constants.js";
+import { OPTIONAL_PACKAGES } from "../constants.js";
 import { OptionalPackage } from "../types.js";
 
 /**
