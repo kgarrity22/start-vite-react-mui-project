@@ -1,8 +1,15 @@
 import enquirer from "enquirer";
 import path from "path";
 import fs from "fs-extra";
-import { validateGoogleFonts } from "./validate-fonts";
+import { validateGoogleFonts } from "./validate-fonts.js";
+import { getApiKey } from "./handle-api-key/get-api-key.js";
 
+/**
+ * Updates index.html file to import google fonts & change project title
+ * @param projectName - String name of project
+ * @param fonts - Array of Google Font family names
+ * @param projectRoot - Project directory location
+ */
 const updateIndex = async (
   projectName: string,
   fonts: string[],
@@ -65,32 +72,24 @@ const updateIndex = async (
 };
 
 /**
- * 
- * 
- * Flow. Would you like to install google fonts? 
-Y/n
-If no —> skip 
-If yes —> You need to provide a developer API key (see url).
-Do you want to validate your fonts before attempting to import (recommended)? 
-Please provide an Google Web developer API key to validate (see url)
-—> if no value is provided —> No API key entered, font validation will be skipped.
-
-Also want to add an interim step that handles the invalid fonts if they exist 
+ *
+ * @param projectName - String name of project
+ * @returns - String name of font family (if user sets one), otherwise undefined
  */
-export const addFonts = async (projectName: string) => {
+export const addFonts = async (
+  projectName: string
+): Promise<string | undefined> => {
   const { prompt } = enquirer;
-  const { shouldInstallFonts } = await prompt<{
-    shouldInstallFonts: boolean;
-  }>({
-    type: "confirm",
-    name: "installFonts",
-    message: "Would you like to install Google Fonts? (Y/N)",
-  });
-  if (!shouldInstallFonts) {
+
+  // Get API key for font validation
+  const apiKey = await getApiKey();
+
+  // If no API key, we skip font installation. Don't want users to try to install invalid fonts
+  if (!apiKey) {
     console.log(
-      "Skipping Google Font installing. You can import fonts manually at a later stage of project development."
+      "🚨 No API key provided. Skipping font installation. You can import fonts manually later. 🚨"
     );
-    return;
+    return undefined;
   }
 
   const { fonts } = await prompt<{ fonts: string[] }>([
@@ -98,7 +97,7 @@ export const addFonts = async (projectName: string) => {
       type: "list",
       name: "fonts",
       message:
-        "Import Fonts: Enter any google font families you would like to import (comma separated if more than one). Press 'Enter' to skip:",
+        "Enter any Google font family names you would like to import (comma separated if more than one):",
     },
   ]);
 
