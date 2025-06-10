@@ -44,7 +44,7 @@ This CLI helps you:
 
 ### Google Fonts Integration 
 For running locally, you'll need to get a Google Fonts API key ([see more on this here](https://developers.google.com/fonts/docs/developer_api)) and store in in a .env file as `GOOGLE_FONTS_API_KEY`
-See [above section]() on Google Fonts integration for more information on other ways to store and use your API key.
+See [above section](#google-fonts-integration-optional) on Google Fonts integration for more information on other ways to store and use your API key.
 
 ### Local Development
 ```bash
@@ -86,8 +86,11 @@ cli-tool/
 │   │   │    │    ├── add-color-mode-context.ts       
 │   │   │    │    ├── add-color-mode-hook.ts    
 │   │   │    │    └── add-color-mode-toggle.ts   
-│   │   │    ├── add-fonts.ts       
-│   │   │    ├── setup-theme.ts    
+│   │   │    ├── configure-fonts/   # Handles adding Google Fonts & setting up Google Font API key to validate fonts existence
+│   │   │    │    ├── add-fonts.ts  
+│   │   │    │    ├── validate-fonts.ts
+│   │   │    │    └── handle-api-key/          
+│   │   │    ├── setup-theme.ts    # Puts all theme set-up (colors, fonts, etc.) together
 │   │   │    └── types.ts   
 │   │   ├── clear-styles.ts
 │   │   ├── constants.ts
@@ -110,6 +113,7 @@ cli-tool/
 - [ ] Options for installing other component libraries/style systems in place of MUI
 - [ ] Extend to other other vite-allowed (Vue/Svelte/Vanilla etc.)
 - [ ] Set Google Fonts key via global config
+- [ ] Automated Tests
 
 ## 🤝 Contributing
 
