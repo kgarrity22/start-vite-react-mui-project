@@ -105,10 +105,7 @@ export const addFonts = async (
   if (fonts.length <= 0) {
     return "";
   } else {
-    const { valid, invalid } = await validateGoogleFonts(
-      fonts,
-      process.env.GOOGLE_FONTS_API_KEY
-    );
+    const { valid, invalid } = await validateGoogleFonts(fonts, apiKey);
 
     // Notify user of any invalid fonts
     if (invalid.length > 0) {
