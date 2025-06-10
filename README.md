@@ -3,9 +3,21 @@
 A customizable command-line tool that scaffolds a modern React + Vite project with pre-installed libraries and opinionated project structure.
 
 ## ℹ️ About
-I'm a big fan of using vite when I create web apps, but I also have found myself repeating a series of steps to get the project configuration exactly the way I want it each time. I built this CLI tool to automate those few extra set up steps in the hopes of streamlining my project creation process by automatically installing packages, scaffolding the app's file structure, defining fonts, and establishing some baseline themeing. This makes it quick and easy for me to start a new project with my go to front-end tech stack (React, MUI (component library), bulletproof react (for file structure guidelines), google fonts).
+I'm a big fan of using vite when I create web apps, but I also have found myself repeating a series of steps to get the project configuration exactly the way I want it each time. I built this CLI tool to automate those few extra set up steps in the hopes of streamlining my project creation process by automatically installing packages, scaffolding the app's file structure, defining fonts, and establishing some baseline themeing. This makes it quick and easy for me to start a new project with my go to front-end tech stack (React, MUI (component library), bulletproof react (for file structure guidelines), Google Fonts).
 
 ## 👉 How to Use
+
+### Before you run
+#### Google Fonts Integration (Optional)
+
+To enable Google Fonts optimization, you can provide an API key in a couple ways:
+
+1. **Environment variable**: `export GOOGLE_FONTS_API_KEY=your_key`
+2. **Command line**: `npx start-vite-react-mui-project --google-fonts-key your_key`
+
+Get a free API key at: https://developers.google.com/fonts/docs/developer_api
+
+### Running
 Run
 ```
 npx start-vite-react-mui-project
@@ -29,9 +41,12 @@ This CLI helps you:
 - Build in dark/light mode toggling capabilities
 
 ## 🧪 Getting Started (Development)
-For running locally, you'll need to get a Google fonts API key ([see more on this here](https://developers.google.com/fonts/docs/developer_api)) and store in in a .env file as `GOOGLE_FONTS_API_KEY`
 
+### Google Fonts Integration 
+For running locally, you'll need to get a Google Fonts API key ([see more on this here](https://developers.google.com/fonts/docs/developer_api)) and store in in a .env file as `GOOGLE_FONTS_API_KEY`
+See [above section]() on Google Fonts integration for more information on other ways to store and use your API key.
 
+### Local Development
 ```bash
 # Clone the repo and install dependencies
 git clone https://github.com/kgarrity22/cli-tool.git
@@ -94,6 +109,7 @@ cli-tool/
 - [ ] Enable optional creation of a top nav bar
 - [ ] Options for installing other component libraries/style systems in place of MUI
 - [ ] Extend to other other vite-allowed (Vue/Svelte/Vanilla etc.)
+- [ ] Set Google Fonts key via global config
 
 ## 🤝 Contributing
 
